@@ -20,12 +20,11 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue/format"
 	"cuelang.org/go/cue/load"
 	"cuelang.org/go/internal/diff"
 	"cuelang.org/go/tools/trim"
+	"github.com/muesli/coral"
 )
 
 // TODO:
@@ -33,8 +32,8 @@ import (
 // - implement verification post-processing as extra safety
 
 // newTrimCmd creates a trim command
-func newTrimCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newTrimCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "trim",
 		Short: "remove superfluous fields",
 		Long: `trim removes fields from structs that can be inferred from constraints

@@ -19,11 +19,11 @@ import (
 	goruntime "runtime"
 	"runtime/debug"
 
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
-func newVersionCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newVersionCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "version",
 		Short: "print CUE version",
 		Long:  ``,

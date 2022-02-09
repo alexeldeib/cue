@@ -15,15 +15,14 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/internal/encoding"
 	"cuelang.org/go/internal/filetypes"
+	"github.com/muesli/coral"
 )
 
 // newExportCmd creates and export command
-func newExportCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newExportCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "export",
 		Short: "output data in a standard format",
 		Long: `export evaluates the configuration found in the current

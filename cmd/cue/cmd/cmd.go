@@ -18,13 +18,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
 // TODO: generate long description from documentation.
 
-func newCmdCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newCmdCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "cmd <name> [inputs]",
 		Short: "run a user-defined shell command",
 		Long: `cmd executes the named command for each of the named instances.

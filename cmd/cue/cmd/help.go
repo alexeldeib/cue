@@ -15,7 +15,7 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
 // TODO: intersperse the examples at the end of the texts in the
@@ -25,8 +25,8 @@ import (
 // The user can then scroll up to get a more in-depth explanation. But is
 // this how users use it?
 
-func newHelpTopics(c *Command) []*cobra.Command {
-	return []*cobra.Command{
+func newHelpTopics(c *Command) []*coral.Command {
+	return []*coral.Command{
 		inputsHelp,
 		flagsHelp,
 		filetypeHelp,
@@ -35,7 +35,7 @@ func newHelpTopics(c *Command) []*cobra.Command {
 	}
 }
 
-var inputsHelp = &cobra.Command{
+var inputsHelp = &coral.Command{
 	Use:   "inputs",
 	Short: "package list, patterns, and files",
 	Long: `Many commands apply to a set of inputs:
@@ -98,7 +98,7 @@ $ cue export data.json schema: schema.json
 `,
 }
 
-var flagsHelp = &cobra.Command{
+var flagsHelp = &coral.Command{
 	Use:   "flags",
 	Short: "common flags for composing packages",
 	Long: `Non-CUE files are merged at their roots by default.
@@ -172,7 +172,7 @@ $ cue eval --with-context -l 'path.Base(filename)' -l data.kind foo.yaml
 `,
 }
 
-var filetypeHelp = &cobra.Command{
+var filetypeHelp = &coral.Command{
 	Use:   "filetypes",
 	Short: "supported file types and qualifiers",
 	Long: `The cue tools supports the following file types:
@@ -263,7 +263,7 @@ $ cue export -e name -o=text:foo
 `,
 }
 
-var injectHelp = &cobra.Command{
+var injectHelp = &coral.Command{
 	Use:   "injection",
 	Short: "inject files or values into specific fields for a build",
 	Long: `Many of the cue commands allow injecting values or
@@ -358,7 +358,7 @@ The following variables are supported:
 `,
 }
 
-var commandsHelp = &cobra.Command{
+var commandsHelp = &coral.Command{
 	Use:   "commands",
 	Short: "user-defined commands",
 	Long: `Commands define actions on instances. For example, they may

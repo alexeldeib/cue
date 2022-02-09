@@ -25,8 +25,6 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue"
 	"cuelang.org/go/cue/errors"
 	itask "cuelang.org/go/internal/task"
@@ -37,6 +35,7 @@ import (
 	_ "cuelang.org/go/pkg/tool/http"
 	_ "cuelang.org/go/pkg/tool/os"
 	"cuelang.org/go/tools/flow"
+	"github.com/muesli/coral"
 )
 
 const (
@@ -60,7 +59,7 @@ func splitLine(s string) (line, tail string) {
 	return
 }
 
-func addCustom(c *Command, parent *cobra.Command, typ, name string, tools *cue.Instance) (*cobra.Command, error) {
+func addCustom(c *Command, parent *coral.Command, typ, name string, tools *cue.Instance) (*coral.Command, error) {
 	if tools == nil {
 		return nil, errors.New("no commands defined")
 	}
@@ -104,7 +103,7 @@ outer:
 	if !strings.HasPrefix(usage, name+" ") {
 		usage = name
 	}
-	sub := &cobra.Command{
+	sub := &coral.Command{
 		Use:   usage,
 		Short: lookupString(o, "$short", short),
 		Long:  lookupString(o, "$long", long),

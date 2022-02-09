@@ -15,15 +15,14 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/internal/encoding"
 	"cuelang.org/go/internal/filetypes"
+	"github.com/muesli/coral"
 )
 
 // newDefCmd creates a new eval command
-func newDefCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newDefCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "def",
 		Short: "print consolidated definitions",
 		Long: `def prints consolidated configuration as a single file.

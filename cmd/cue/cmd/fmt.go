@@ -15,8 +15,6 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue/ast"
 	"cuelang.org/go/cue/build"
 	"cuelang.org/go/cue/errors"
@@ -25,10 +23,11 @@ import (
 	"cuelang.org/go/cue/token"
 	"cuelang.org/go/internal/encoding"
 	"cuelang.org/go/tools/fix"
+	"github.com/muesli/coral"
 )
 
-func newFmtCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newFmtCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "fmt [-s] [inputs]",
 		Short: "formats CUE configuration files",
 		Long: `Fmt formats the given files or the files for the given packages in place

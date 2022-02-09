@@ -22,11 +22,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
-func newModCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newModCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "mod <cmd> [arguments]",
 		Short: "module maintenance",
 		Long: `
@@ -48,8 +48,8 @@ func newModCmd(c *Command) *cobra.Command {
 	return cmd
 }
 
-func newModInitCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newModInitCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "init [module]",
 		Short: "initialize new module in current directory",
 		Long: `Init initializes a cue.mod directory in the current directory,

@@ -17,7 +17,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
 var validCompletionArgs = []string{"bash", "zsh", "fish", "powershell"}
@@ -48,14 +48,14 @@ $ cue completion fish | source
 $ cue completion fish > ~/.config/fish/completions/cue.fish
 `
 
-func newCompletionCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newCompletionCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:       fmt.Sprintf("completion %s", validCompletionArgs),
 		Short:     "Generate completion script",
 		Long:      ``,
 		Example:   completionExample,
 		ValidArgs: validCompletionArgs,
-		Args:      cobra.ExactValidArgs(1),
+		Args:      coral.ExactValidArgs(1),
 		RunE:      mkRunE(c, runCompletion),
 	}
 	return cmd

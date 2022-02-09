@@ -26,11 +26,11 @@ import (
 	"cuelang.org/go/cue/load"
 	"cuelang.org/go/cue/token"
 	"cuelang.org/go/tools/fix"
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
-func newFixCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newFixCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "fix [packages]",
 		Short: "rewrite packages to latest standards",
 		Long: `Fix finds CUE programs that use old syntax and old APIs and rewrites them to use newer ones.

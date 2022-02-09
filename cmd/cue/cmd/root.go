@@ -20,10 +20,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue/errors"
 	"cuelang.org/go/cue/token"
+	"github.com/muesli/coral"
 )
 
 // TODO: commands
@@ -40,8 +39,8 @@ import (
 
 type runFunction func(cmd *Command, args []string) error
 
-func mkRunE(c *Command, f runFunction) func(*cobra.Command, []string) error {
-	return func(cmd *cobra.Command, args []string) error {
+func mkRunE(c *Command, f runFunction) func(*coral.Command, []string) error {
+	return func(cmd *coral.Command, args []string) error {
 		c.Command = cmd
 		err := f(c, args)
 		if err != nil {
@@ -53,7 +52,7 @@ func mkRunE(c *Command, f runFunction) func(*cobra.Command, []string) error {
 
 // newRootCmd creates the base command when called without any subcommands
 func newRootCmd() *Command {
-	cmd := &cobra.Command{
+	cmd := &coral.Command{
 		Use:   "cue",
 		Short: "cue emits configuration files to user-defined commands.",
 		Long: `cue evaluates CUE files, an extension of JSON, and sends them
@@ -86,7 +85,7 @@ For more information on writing CUE configuration files see cuelang.org.`,
 	cmdCmd := newCmdCmd(c)
 	c.cmd = cmdCmd
 
-	subCommands := []*cobra.Command{
+	subCommands := []*coral.Command{
 		cmdCmd,
 		newCompletionCmd(c),
 		newEvalCmd(c),
@@ -147,12 +146,12 @@ func mainErr(ctx context.Context, args []string) error {
 
 type Command struct {
 	// The currently active command.
-	*cobra.Command
+	*coral.Command
 
-	root *cobra.Command
+	root *coral.Command
 
 	// Subcommands
-	cmd *cobra.Command
+	cmd *coral.Command
 
 	hasErr bool
 }
@@ -287,7 +286,7 @@ Run 'cue help' to show available commands.`,
 
 type subSpec struct {
 	name string
-	cmd  *cobra.Command
+	cmd  *coral.Command
 }
 
 func addSubcommands(cmd *Command, sub map[string]*subSpec, args []string, isHelp bool) error {

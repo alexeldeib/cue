@@ -15,7 +15,7 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 	"golang.org/x/text/message"
 
 	"cuelang.org/go/cue"
@@ -61,8 +61,8 @@ Examples:
 If more than one expression is given, all must match all values.
 `
 
-func newVetCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newVetCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "vet",
 		Short: "validate data",
 		Long:  vetDoc,

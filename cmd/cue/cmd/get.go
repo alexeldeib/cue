@@ -18,11 +18,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 )
 
-func newGetCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newGetCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "get <language> [packages]",
 		Short: "add dependencies to the current module",
 		Long: `Get downloads packages or modules for CUE or another language

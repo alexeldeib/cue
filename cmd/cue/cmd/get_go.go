@@ -31,7 +31,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 	"golang.org/x/tools/go/packages"
 
 	cueast "cuelang.org/go/cue/ast"
@@ -55,8 +55,8 @@ import (
 //   package foo
 //   Type: enumType
 
-func newGoCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newGoCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "go [packages]",
 		Short: "add Go dependencies to the current module",
 		Long: `go converts Go types into CUE definitions

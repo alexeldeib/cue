@@ -25,18 +25,17 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue"
 	"cuelang.org/go/cue/build"
 	"cuelang.org/go/cue/format"
 	"cuelang.org/go/cue/load"
 	"cuelang.org/go/cue/parser"
 	"cuelang.org/go/internal"
+	"github.com/muesli/coral"
 )
 
-func newAddCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newAddCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		// TODO: this command is still experimental, don't show it in
 		// the documentation just yet.
 		Hidden: true,

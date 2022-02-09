@@ -22,8 +22,6 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue/ast"
 	"cuelang.org/go/cue/ast/astutil"
 	"cuelang.org/go/cue/build"
@@ -37,10 +35,11 @@ import (
 	"cuelang.org/go/encoding/protobuf"
 	"cuelang.org/go/internal"
 	"cuelang.org/go/internal/third_party/yaml"
+	"github.com/muesli/coral"
 )
 
-func newImportCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newImportCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "import [mode] [inputs]",
 		Short: "convert other formats to CUE files",
 		Long: `import converts other formats, like JSON and YAML to CUE files

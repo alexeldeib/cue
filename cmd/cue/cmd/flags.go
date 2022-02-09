@@ -15,7 +15,7 @@
 package cmd
 
 import (
-	"github.com/spf13/cobra"
+	"github.com/muesli/coral"
 	"github.com/spf13/pflag"
 )
 
@@ -119,7 +119,7 @@ type stringFlag struct {
 	def   string
 }
 
-func (f *stringFlag) Add(cmd *cobra.Command) {
+func (f *stringFlag) Add(cmd *coral.Command) {
 	cmd.Flags().StringP(f.name, f.short, f.def, f.text)
 }
 

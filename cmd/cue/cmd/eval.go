@@ -17,19 +17,18 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/spf13/cobra"
-
 	"cuelang.org/go/cue"
 	"cuelang.org/go/cue/build"
 	"cuelang.org/go/cue/format"
 	"cuelang.org/go/internal"
 	"cuelang.org/go/internal/encoding"
 	"cuelang.org/go/internal/filetypes"
+	"github.com/muesli/coral"
 )
 
 // newEvalCmd creates a new eval command
-func newEvalCmd(c *Command) *cobra.Command {
-	cmd := &cobra.Command{
+func newEvalCmd(c *Command) *coral.Command {
+	cmd := &coral.Command{
 		Use:   "eval",
 		Short: "evaluate and print a configuration",
 		Long: `eval evaluates, validates, and prints a configuration.
